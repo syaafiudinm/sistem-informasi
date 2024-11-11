@@ -47,7 +47,7 @@ function App() {
       <h1>Name from Firestore:</h1>
       {/* Menampilkan nilai number atau teks loading jika data belum ada */}
       {loading ? (
-        <p>Loading...</p>
+        <p className="text-2xl text-slate-900">Loading...</p>
       ) : (
         <p>{name !== null ? name : "No data available"}</p>
       )}
