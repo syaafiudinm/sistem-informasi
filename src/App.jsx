@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import React, { useEffect, useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore"; // Import onSnapshot
+import { db } from "./firebase"; // Pastikan import db benar
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState(null); // State untuk menyimpan nilai 'number'
+  const [loading, setLoading] = useState(true); // State untuk loading
+
+  // Fungsi untuk mengambil data dari Firestore
+  const fetchData = () => {
+    // Mengakses dokumen 'data' di dalam koleksi 'count'
+    const docRef = doc(db, "users", "KDmIm8pXGZaV9iNnCUXa"); // Menentukan referensi dokumen menggunakan doc()
+
+    // Menggunakan onSnapshot untuk mendengarkan perubahan pada dokumen
+    const unsubscribe = onSnapshot(
+      docRef,
+      (docSnap) => {
+        if (docSnap.exists()) {
+          // Jika dokumen ditemukan, ambil nilai dari field 'number'
+          const nameValue = docSnap.data()?.name;
+          setName(nameValue); // Set nilai 'number' ke state
+          setLoading(false); // Set loading ke false setelah data diterima
+        } else {
+          console.log("Dokumen tidak ditemukan.");
+          setLoading(false); // Set loading ke false jika dokumen tidak ditemukan
+        }
+      },
+      (error) => {
+        console.error("Error fetching data: ", error);
+        setLoading(false); // Set loading ke false jika terjadi error
+      }
+    );
+
+    // Mengembalikan fungsi unsubscribe untuk menghentikan pendengaran saat komponen unmounted
+    return unsubscribe;
+  };
+
+  // Panggil fetchData ketika komponen dimuat
+  useEffect(() => {
+    const unsubscribe = fetchData();
+    return () => unsubscribe(); // Hentikan pendengaran saat komponen unmounted
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>React + Firebase</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Name from Firestore:</h1>
+      {/* Menampilkan nilai number atau teks loading jika data belum ada */}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <p>{name !== null ? name : "No data available"}</p>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
