@@ -1,7 +1,21 @@
 import React from "react";
 import "../index.css";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleAuthProvider } from "../firebase";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleAuthProvider);
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-full flex flex-col items-center">
       <form className="max-w-sm mx-auto border-2 border-blue-500 shadow-2xl rounded-md p-8">
@@ -46,10 +60,11 @@ const LoginForm = () => {
         <button
           type="submit"
           className="text-blue-500 border-2 border-blue-500 bg-white hover:bg-blue-500 hover:text-white font-semibold text-sm rounded-lg flex justify-center  mx-auto mt-5 px-8 py-3 group"
+          onClick={signInWithGoogle}
         >
           masuk menggunakan google
           <svg
-            class="ml-3 w-6 h-6 text-blue-500 group-hover:text-white"
+            className="ml-3 w-6 h-6 text-blue-500 group-hover:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -58,9 +73,9 @@ const LoginForm = () => {
             viewBox="0 0 24 24"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M12.037 21.998a10.313 10.313 0 0 1-7.168-3.049 9.888 9.888 0 0 1-2.868-7.118 9.947 9.947 0 0 1 3.064-6.949A10.37 10.37 0 0 1 12.212 2h.176a9.935 9.935 0 0 1 6.614 2.564L16.457 6.88a6.187 6.187 0 0 0-4.131-1.566 6.9 6.9 0 0 0-4.794 1.913 6.618 6.618 0 0 0-2.045 4.657 6.608 6.608 0 0 0 1.882 4.723 6.891 6.891 0 0 0 4.725 2.07h.143c1.41.072 2.8-.354 3.917-1.2a5.77 5.77 0 0 0 2.172-3.41l.043-.117H12.22v-3.41h9.678c.075.617.109 1.238.1 1.859-.099 5.741-4.017 9.6-9.746 9.6l-.215-.002Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
         </button>
