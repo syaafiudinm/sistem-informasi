@@ -5,6 +5,10 @@ import "./index.css";
 import App from "./App";
 import Home from "./Pages/LoginPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Pastikan RouterProvider diimpor
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./Pages/Dashboard";
+import RegisterPage from "./Pages/RegisterPage";
+import LaporanPage from "./Pages/LaporanPage";
 
 // Definisikan router
 const router = createBrowserRouter([
@@ -16,6 +20,18 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Home />,
   },
+  {
+    path:"/dashboard",
+    element: <Dashboard />
+  },
+  {
+    path:"/register",
+    element: <RegisterPage />
+  },
+  {
+    path:"/dashboard/laporan",
+    element: <LaporanPage />
+  }
 ]);
 
 // Buat root dan render komponen dengan RouterProvider

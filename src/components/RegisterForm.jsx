@@ -1,10 +1,10 @@
 import React from "react";
 import "../index.css";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   return (
     <div className="w-full flex flex-col items-center">
-      <form className="max-w-sm mx-auto border-2 border-blue-500 shadow-2xl rounded-md p-8">
+      <form className="max-w-sm mx-auto border-2 border-blue-500 shadow-2xl rounded-md p-5">
         <div className="flex mb-10 items-center gap-12">
           <svg
             width="70"
@@ -19,21 +19,35 @@ const LoginForm = () => {
               fill="#007AFF"
             />
           </svg>
-          <h3 className="text-3xl text-blue-500 font-bold">Login!</h3>
+          <h3 className="text-3xl text-blue-500 font-bold">Register</h3>
         </div>
         <div className="flex flex-col items-center">
+          <input
+            type="text"
+            id="username"
+            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5 text-blue-400"
+            placeholder="Username"
+            required
+          />
           <input
             type="email"
             id="email"
             className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
-            placeholder="Username"
+            placeholder="Email"
             required
           />
           <input
             type="password"
             id="password"
-            className="shadow-sm border-4 border-blue-500 text-gray-900 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            className="shadow-sm border-4 border-blue-500 text-blue-400 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
             placeholder="Kata Sandi"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            className="shadow-sm border-4 border-blue-500 text-blue-400 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            placeholder="Konfirmasi Kata Sandi"
             required
           />
         </div>
@@ -41,7 +55,7 @@ const LoginForm = () => {
           type="submit"
           className="text-white bg-blue-500 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:border-2 font-semibold text-sm rounded-lg flex justify-center px-16 py-3 mx-auto"
         >
-          Masuk
+          Daftar
         </button>
         <button
           type="submit"
@@ -69,4 +83,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

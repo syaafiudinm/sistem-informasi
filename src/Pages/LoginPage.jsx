@@ -6,7 +6,7 @@ import "../index.css";
 function Home() {
   return (
     <div>
-        <Navbar />
+        <Navbar {...{ children: "Register", link: "/register" }} />
         <LoginForm/>
     </div>
   )

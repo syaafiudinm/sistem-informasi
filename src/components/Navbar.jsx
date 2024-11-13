@@ -1,14 +1,17 @@
 import React from "react";
 import "../index.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const { children, link } = props;
+
   return (
     <nav className="flex items justify-between">
       <div className="flex flex-shrink-0 items-center">
         <a href="/" aria-label="Home">
           <svg
-            width="240"
-            height="218"
+            width="140"
+            height="120"
             viewBox="0 0 240 218"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +29,14 @@ const Navbar = () => {
               fill="#007BFF"
             />
           </svg>
+        </a>
+      </div>
+      <div className="m-8 flex items-center justify-center gap-4 text-lg">
+        <a
+          href={link}
+          className="bg-blue-500 p-2 rounded-lg text-white border-slate-300 border-2 hover:bg-white hover:text-blue-500 hover:border-blue-500"
+        >
+          {children}
         </a>
       </div>
     </nav>
