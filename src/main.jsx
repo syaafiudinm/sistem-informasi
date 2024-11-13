@@ -9,6 +9,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./Pages/Dashboard";
 import RegisterPage from "./Pages/RegisterPage";
 import LaporanPage from "./Pages/LaporanPage";
+import RoutePage from "./Pages/RoutePage";
 
 // Definisikan router
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path:"/dashboard/laporan",
     element: <LaporanPage />
+  },
+  {
+    path:"/dashboard/route",
+    element: <RoutePage />
   }
 ]);
 

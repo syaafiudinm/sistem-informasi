@@ -1,8 +1,14 @@
 import React from "react";
 import "../index.css";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = (props) => {
   const { content } = props;
+  const location = useLocation();
+
+  const is_Active = (path) => {
+    return location.pathname === path ? "active" : "";
+  };
 
   return (
     <div>
@@ -37,12 +43,18 @@ const Sidebar = (props) => {
         <div className="h-full px-3 py-4 overflow-y-auto bg-blue-500 dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
             <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              <Link
+                to="/dashboard"
+                className={`flex items-center p-2 rounded-lg group ${
+                  is_Active("/dashboard")
+                    ? "bg-gray-100 text-blue-500" // Gaya untuk item aktif
+                    : "hover:text-blue-500 text-white hover:bg-white dark:hover:bg-gray-700"
+                }`}
               >
                 <svg
-                  className="w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-white"
+                  className={`w-5 h-5 transition duration-75 group-hover:text-blue-500 ${
+                    is_Active("/dashboard") ? "text-blue-500" : "text-white"
+                  }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -54,7 +66,7 @@ const Sidebar = (props) => {
                 <span className="ms-3 group-hover:text-blue-500">
                   Dashboard
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -78,17 +90,25 @@ const Sidebar = (props) => {
                 </svg>
 
                 <span className="flex-1 ms-3 whitespace-nowrap text-white group-hover:text-blue-500">
-                  Kanban
+                  Route
                 </span>
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              <Link
+                to="/dashboard/laporan"
+                className={`flex items-center p-2 rounded-lg group ${
+                  is_Active("/dashboard/laporan")
+                    ? "bg-gray-100 text-blue-500" // Gaya untuk item aktif
+                    : "hover:bg-white text-white dark:hover:bg-gray-700"
+                }`}
               >
                 <svg
-                  className="w-6 h-6 text-white group-hover:text-blue-500 dark:text-white"
+                  className={`w-5 h-5 transition duration-75 group-hover:text-blue-500 ${
+                    is_Active("/dashboard/laporan")
+                      ? "text-blue-500"
+                      : "text-white"
+                  }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -104,11 +124,8 @@ const Sidebar = (props) => {
                     d="M19 7h1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11.5M7 14h6m-6 3h6m0-10h.5m-.5 3h.5M7 7h3v3H7V7Z"
                   />
                 </svg>
-
-                <span className="text-white flex-1 ms-3 whitespace-nowrap group-hover:text-blue-500">
-                  Location
-                </span>
-              </a>
+                <span className="ms-3 group-hover:text-blue-500">Laporan</span>
+              </Link>
             </li>
           </ul>
         </div>
