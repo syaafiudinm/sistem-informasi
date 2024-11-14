@@ -39,14 +39,14 @@ const LoginForm = () => {
           <input
             type="email"
             id="email"
-            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
             placeholder="Username"
             required
           />
           <input
             type="password"
             id="password"
-            className="shadow-sm border-4 border-blue-500 text-gray-900 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            className="shadow-sm border-4 border-blue-500 text-gray-900 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
             placeholder="Kata Sandi"
             required
           />
@@ -62,7 +62,7 @@ const LoginForm = () => {
           className="text-blue-500 border-2 border-blue-500 bg-white hover:bg-blue-500 hover:text-white font-semibold text-sm rounded-lg flex justify-center  mx-auto mt-5 px-8 py-3 group"
           onClick={signInWithGoogle}
         >
-          masuk menggunakan google
+          Masuk menggunakan google
           <svg
             className="ml-3 w-6 h-6 text-blue-500 group-hover:text-white"
             aria-hidden="true"

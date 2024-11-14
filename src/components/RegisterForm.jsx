@@ -25,28 +25,28 @@ const RegisterForm = () => {
           <input
             type="text"
             id="username"
-            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5 text-blue-400"
+            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5 text-blue-400"
             placeholder="Username"
             required
           />
           <input
             type="email"
             id="email"
-            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            className="shadow-sm border-4 border-blue-500 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block px-8 py-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
             placeholder="Email"
             required
           />
           <input
             type="password"
             id="password"
-            className="shadow-sm border-4 border-blue-500 text-blue-400 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            className="shadow-sm border-4 border-blue-500 text-blue-400 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
             placeholder="Kata Sandi"
             required
           />
           <input
             type="password"
             id="password"
-            className="shadow-sm border-4 border-blue-500 text-blue-400 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
+            className="shadow-sm border-4 border-blue-500 text-blue-400 text-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block  px-8 py-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-semibold mb-5"
             placeholder="Konfirmasi Kata Sandi"
             required
           />
